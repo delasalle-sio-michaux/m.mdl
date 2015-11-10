@@ -22,8 +22,8 @@
 						<li><a href="#">
 							<h5>Réserv. n°<?php echo $uneReservation->getId() ?></h5>
 							<p>Passée le <?php echo Outils::convertirEnDateFR(substr($uneReservation->getTimestamp(), 0, 10)) ?></p>
-							<p>Début : <?php echo $uneReservation->getStart_time() ?></p>
-							<p>Fin : <?php echo $uneReservation->getEnd_time() ?></p>
+							<p>Début : <?php echo date('d/m/Y H:i', $uneReservation->getStart_time()) ?></p>
+							<p>Fin : <?php echo date('d/m/Y H:i', $uneReservation->getEnd_time()) ?></p>
 							<p>Salle : <?php echo $uneReservation->getRoom_name() ?></p>
 							<p>Etat : <?php $etat = $uneReservation->getStatus();
 								if($etat == 0)
