@@ -8,53 +8,30 @@
 // si l'utilisateur n'a pas passé de réservations, l'application affiche un message d'erreur (vue VueConsulterReservations.php)
 
 
-if ( ! isset ($_POST ["nom"]) == true) {
-	// si les données n'ont pas été postées, c'est le premier appel du formulaire : affichage de la vue sans message d'erreur
-	$nom = '';
-	$mdp = '';
-	$afficherMdp = 'off';
-	$niveauUtilisateur = '';
-	$msgFooter = 'Connexion';
+// connexion du serveur web à la base MySQL ("include_once" peut être remplacé par "require_once")
+
+include_once ('modele/DAO.class.php');
+
+$dao = new DAO();
+
+// mise à jour de la table mrbs_entry_digicode (si besoin) pour créer les digicodes manquants
+$dao->creerLesDigicodesManquants();
+	
+// récupération des réservations à venir créées par l'utilisateur
+$lesReservations = $dao->listeReservations($nom);
+$nbReponses = sizeof($lesReservations);
+	
+if ($nbReponses == 0){
+	$msgFooter = "Vous n'avez aucune réservation !";
+	$themeFooter = $themeProbleme;
+	include_once ('vues/VueConsulterReservations.php');
+}
+else{
+	$msgFooter = "Vous avez ".$nbReponses." réservation(s) !";
 	$themeFooter = $themeNormal;
-	include_once ('vues/VueConnecter.php');
+	include_once ('vues/VueConsulterReservations.php');
 }
-else {
-	// récupération des données postées
-	if ( empty ($_POST ["nom"]) == true)  $nom = "";  else   $nom = $_POST ["nom"];
-	if ( empty ($_POST ["mdp"]) == true)  $mdp = "";  else   $mdp = $_POST ["mdp"];
-	if ( empty ($_POST ["afficherMdp"]) == true)  $afficherMdp = "off";  else   $afficherMdp = $_POST ["afficherMdp"];
-			
-	if ($nom == '' || $mdp == '') {
-		// si les données sont incomplètes, réaffichage de la vue avec un message explicatif
-		$msgFooter = 'Données incomplètes ou incorrectes !';
-		$themeFooter = $themeProbleme;
-		$niveauUtilisateur = '';
-		include_once ('vues/VueConnecter.php');
-	}
-	else {
-		// connexion du serveur web à la base MySQL
-		include_once ('modele/DAO.class.php');
-		$dao = new DAO();
-		
-		// test de l'authentification de l'utilisateur
-		// la méthode getNiveauUtilisateur de la classe DAO retourne les valeurs 'inconnu' ou 'utilisateur' ou 'administrateur'
-		$niveauUtilisateur = $dao->getNiveauUtilisateur($nom, $mdp);
-		
-		if ( $niveauUtilisateur == "inconnu" ) {
-			// si l'authentification est incorrecte, retour à la vue de connexion
-			$msgFooter = 'Authentification incorrecte !';
-			$themeFooter = $themeProbleme;
-			include_once ('vues/VueConnecter.php');
-		}
-		else {
-			// si l'authentification est correcte, mémorisation des données de connexion dans des variables de session
-			$_SESSION['nom'] = $nom;
-			$_SESSION['mdp'] = $mdp;
-			$_SESSION['niveauUtilisateur'] = $niveauUtilisateur;
-			// affichage du menu
-			include_once ('controleurs/CtrlMenu.php');
-		}
-		
-		unset($dao);		// fermeture de la connexion à MySQL
-	}
-}
+// ferme la connexion à MySQL
+unset($dao);
+
+
