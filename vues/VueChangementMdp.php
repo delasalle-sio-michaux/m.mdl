@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-	<head>
+<head>
 		<?php include_once ('vues/head.php'); ?>
 	</head>
 	<body>
@@ -11,14 +11,13 @@
 			</div>
 			
 			<div data-role="content">
-				<h4 style="text-align: center; margin-top: 0px; margin-bottom: 0px;">Confirmer une réservation</h4>
-				<form name="form1" id="form1" action="index.php?action=ConfirmerReservation" method="POST">
+				<form name="form1" id="form1" action="index.php?action=CtrlChangerDeMdp" method="POST">
 					<div data-role="fieldcontain" class="ui-hide-label">
-						<label for="saisieRes"><b>Confirmer une réservation</b></label>
+						<label for="saisieRes" align='center'><b>Changer mon mot de passe</b></label>
 						<input type='text' name="saisieRes" id="saisieRes" placeholder='Entrer le numéro de reservation'>
 					</div>
 					<div data-role="fieldcontain" data-type="horizontal" data-mini="true" class="ui-hide-label">
-						<input type="submit" name="confirmer" id="confirmer" value="Confirmer la reservation">
+						<input type="submit" name="changerMdp" id="changerMdp" value="Changer mon mot de passe">
 					</div>
 				</form>
 			</div>

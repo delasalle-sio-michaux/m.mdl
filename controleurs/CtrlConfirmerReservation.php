@@ -72,3 +72,4 @@ else
 	// ferme la connexion à MySQL
 	unset($dao);
 }
+?>
