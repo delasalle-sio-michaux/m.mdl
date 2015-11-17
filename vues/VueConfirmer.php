@@ -13,7 +13,7 @@
 			<div data-role="content">
 				<form name="form1" id="form1" action="index.php?action=ConfirmerReservation" method="POST">
 					<div data-role="fieldcontain" class="ui-hide-label">
-						<label for="saisieRes" align='center'><b>Confirmer une reservation<b></b></label>
+						<label for="saisieRes" align='center'><b><?php echo $msgFooter ?></b></label>
 						<input type='text' name="saisieRes" id="saisieRes" placeholder='Entrer le numéro de reservation'>
 					</div>
 					<div data-role="fieldcontain" data-type="horizontal" data-mini="true" class="ui-hide-label">
@@ -23,7 +23,7 @@
 			</div>
 			
 			<div data-role="footer" data-position="fixed" data-theme="<?php echo $themeFooter; ?>">
-				<h4>Confirmer une réservation</h4>
+				<h4><?php echo $msgFooter ?></h4>
 			</div>
 		</div>
 	</body>
