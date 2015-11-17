@@ -18,7 +18,7 @@ else
 		include_once('vues/VueConfirmer.php');
 	}
 	else {
-		if ($dao->existeReservation($res) == false)
+		if ($dao->existeReservation($_POST["saisieRes"]) == false)
 		{
 			$msgFooter = "Numéro de réservation inexistant !";
 			$themeFooter = $themeProbleme;
@@ -55,7 +55,7 @@ else
 						$email = $dao->getUtilisateur($nom)->getEmail();
 						// envoie un mail de confirmation de l'enregistrement
 						$sujet = "Confirmation d'une réservation";
-						$message = "Votre réservation ".$res." a bien été confirmée";
+						$message = "Votre réservation ".$_POST["saisieRes"]." a bien été confirmée";
 						
 						$ok = Outils::envoyerMail ($email, $sujet, $message, $ADR_MAIL_EMETTEUR);
 							if ( $ok )
@@ -63,7 +63,7 @@ else
 							else
 								$msgFooter = "Enregistrement effectué.<br>L'envoi du mail de confirmation a rencontré un problème. ";
 							
-							$dao->confirmerReservation($reservation);
+							$dao->confirmerReservation($_POST["saisieRes"]);
 							include_once('vues/VueConfirmer.php');
 				}
 			}
