@@ -1,22 +1,25 @@
 <?php
-if ( !isset($_POST["saisieRes"]) == true)  $res = "";  else   $res = $_POST["saisieRes"];
+include_once('modele/DAO.class.php');
+$dao = new DAO();
+
 
 // Contrôle de la présence des paramètres
-if ( $res == '' )
+if ( !isset($_POST["saisieRes"]))
 {	$msgFooter = "Confirmer une réservation";
 	$themeFooter = $themeNormal;
 	include_once('vues/VueConfirmer.php');
 }
-
-if ( $res != '' )
+else
 {
-// connexion du serveur web à la base MySQL ("include_once" peut être remplacé par "require_once")
-	include_once('modele/DAO.class.php');
-	$dao = new DAO();
-	// Controle de la présence de l'utilisateur
+	if (empty($_POST["saisieRes"]))
+	{
+		$msgFooter = "Données incomplètes ou incorrectes";
+		$themeFooter = $themeProbleme;
+		include_once('vues/VueConfirmer.php');
+	}
+	else {
 		if ($dao->existeReservation($res) == false)
 		{
-			echo "Je suis la";
 			$msgFooter = "Numéro de réservation inexistant !";
 			$themeFooter = $themeProbleme;
 			include_once('vues/VueConfirmer.php');
@@ -65,6 +68,7 @@ if ( $res != '' )
 				}
 			}
 		}
+	}
 	// ferme la connexion à MySQL
 	unset($dao);
 }
