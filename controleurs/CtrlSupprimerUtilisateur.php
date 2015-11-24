@@ -33,8 +33,6 @@
 					include_once('vues/VueSupprimerUtilisateur.php');
 				}
 				else{
-					$dao->supprimerUtilisateur($_POST["saisieRes"]);
-
 					$themeFooter = $themeNormal;
 					$email = $dao->getUtilisateur($_POST["saisieRes"])->getEmail();
 					// envoie un mail de confirmation de l'enregistrement
@@ -46,7 +44,7 @@
 						$msgFooter = "Suppression effectuée.<br>Vous allez recevoir un mail de confirmation.";
 					else
 						$msgFooter = "Suppression effectuée.<br>L'envoi du mail de confirmation a rencontré un problème. ";
-							
+					$dao->supprimerUtilisateur($_POST["saisieRes"]);
 					include_once('vues/VueSupprimerUtilisateur.php');
 				}
 			}

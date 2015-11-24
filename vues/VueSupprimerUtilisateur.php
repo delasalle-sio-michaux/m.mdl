@@ -1,6 +1,6 @@
 <?php
 	// Projet Réservations M2L - version web mobile
-	// Fonction de la vue VueAnnulerReservation.php : permet d'entrer un numéro de réservation à annuler
+	// Fonction de la vue VueSupprimerUtilisateur.php : permet d'entrer un nom d'utilisateur à supprimer
 	// Ecrit le 17/11/2015 par Alban
 ?>
 <!doctype html>
