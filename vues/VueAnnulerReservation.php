@@ -19,7 +19,7 @@
 				<h4 style="text-align: center; margin-top: 10px; margin-bottom: 10px;">Annuler une réservation</h4>
 				<form name="form1" id="form1" action="index.php?action=AnnulerReservation" method="POST">
 					<div data-role="fieldcontain" class="ui-hide-label">
-						<label for="saisieRes" align='center'><b>Annuler une réservation<b></b></label>
+						<label for="saisieRes"><b>Annuler une réservation<b></b></label>
 						<input type='text' name="saisieRes" id="saisieRes" placeholder='Entrer le numéro de reservation'>
 					</div>
 					<div data-role="fieldcontain" data-type="horizontal" data-mini="true" class="ui-hide-label">

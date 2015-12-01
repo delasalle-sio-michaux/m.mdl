@@ -24,7 +24,7 @@
 							<p>Passée le <?php echo Outils::convertirEnDateFR(substr($uneReservation->getTimestamp(), 0, 10)) ?></p>
 							<p>Début : <?php echo date('d/m/Y H:i', $uneReservation->getStart_time()) ?></p>
 							<p>Fin : <?php echo date('d/m/Y H:i', $uneReservation->getEnd_time()) ?></p>
-							<p>Salle : <?php echo $uneReservation->getRoom_name() ?></p>
+							<p>Salle : <?php echo utf8_decode($uneReservation->getRoom_name()) ?></p>
 							<p>Etat : <?php $etat = $uneReservation->getStatus();
 								if($etat == 0)
 									 echo "Confirmée";
