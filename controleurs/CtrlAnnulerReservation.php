@@ -47,9 +47,9 @@
 						
 						$ok = Outils::envoyerMail ($email, $sujet, $message, $ADR_MAIL_EMETTEUR);
 						if ( $ok )
-							$msgFooter = "Annulation effectué.<br>Vous allez recevoir un mail de confirmation.";
+							$msgFooter = "Annulation effectuée.<br>Vous allez recevoir un mail de confirmation.";
 						else
-							$msgFooter = "Annulation effectué.<br>L'envoi du mail de confirmation a rencontré un problème. ";
+							$msgFooter = "Annulation effectuée.<br>L'envoi du mail de confirmation a rencontré un problème. ";
 							
 						$dao->annulerReservation($POST_["saisieRes"]);
 						include_once('vues/VueAnnulerReservation.php');
