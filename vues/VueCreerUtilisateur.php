@@ -15,7 +15,7 @@
 				
 					<div data-role="fieldcontain" class="ui-hide-label">
 						<label for="saisieUser" align='center'><b>Créer un compte utilisateur</b></label>
-						<input type='text' name="saisieUser" id="saisieUser" placeholder="Entrer le nom de l'utilisateur">
+						<input type='text' name="saisieUser" id="saisieUser" placeholder="Entrer le nom de l'utilisateur" value="<?php if(!empty($_POST['saisieUser'])) echo $_POST['saisieUser']; ?>">
 					</div>
 					
 					<div data-role="fieldcontain" class="ui-hide-label">
@@ -26,11 +26,11 @@
 						<fieldset data-role="controlgroup" data-mini="true">
 				        <legend>Niveau :</legend>
 				        	
-					        <input type="radio" name="radioNiveau" id="radio-choice-v-2a" value="0" checked="checked">
+					        <input type="radio" name="radioNiveau" id="radio-choice-v-2a" value="0" <?php if(!empty($_POST['radioNiveau']) && $_POST['radioNiveau']== '0')  echo'checked="checked"'?> checked="checked">
 					        <label for="radio-choice-v-2a">Invité</label>
-					        <input type="radio" name="radioNiveau" id="radio-choice-v-2b" value="1">
+					        <input type="radio" name="radioNiveau" id="radio-choice-v-2b" value="1" <?php if(!empty($_POST['radioNiveau']) && $_POST['radioNiveau']== '1')  echo'checked="checked"'?>>
 					        <label for="radio-choice-v-2b">Utilisateurs</label>
-					        <input type="radio" name="radioNiveau" id="radio-choice-v-2c" value="2">
+					        <input type="radio" name="radioNiveau" id="radio-choice-v-2c" value="2" <?php if(!empty($_POST['radioNiveau']) && $_POST['radioNiveau']== '2')  echo'checked="checked"'?>>
 					        <label for="radio-choice-v-2c">Administrateur</label>
 				    	</fieldset>
 			    	</div>

@@ -44,8 +44,8 @@ else
 					$sujet = "Création de votre compte dans le système de réservation de M2L";
 					$message = "L'administrateur du système de réservations de la M2L vient de vous créer un compte utilisateur.\n\n";
 					$message .= "Les données enregistrées sont :\n\n";
-					$message .= "Votre nom : " . $nom . "\n";
-					$message .= "Votre mot de passe : " . $mdp . " (nous vous conseillons de le changer lors de la première connexion)\n";
+					$message .= "Votre nom : " . $_POST["saisieUser"] . "\n";
+					$message .= "Votre mot de passe : " . $password . " (nous vous conseillons de le changer lors de la première connexion)\n";
 					$message .= "Votre niveau d'accès (0 : invité    1 : utilisateur    2 : administrateur) : " . $_POST['radioNiveau'] . "\n";
 					
 					$ok = Outils::envoyerMail ($_POST['saisieUserMail'], $sujet, $message, $ADR_MAIL_EMETTEUR);
