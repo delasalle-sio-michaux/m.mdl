@@ -1,7 +1,7 @@
 <?php
 	// Projet Réservations M2L - version web mobile
 	// Fonction de la vue VueConnecter.php : visualiser la vue de connexion
-	// Ecrit le 12/10/2015 par Jim
+	// Ecrit le 12/10/2015 par Alban
 ?>
 <!doctype html>
 <html>

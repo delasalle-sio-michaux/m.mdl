@@ -35,7 +35,7 @@
 				else{
 					$themeFooter = $themeNormal;
 					$email = $dao->getUtilisateur($_POST["saisieRes"])->getEmail();
-					// envoie un mail de confirmation de l'enregistrement
+					// envoie un mail de confirmation de la suppression
 					$sujet = "Suppression de votre compte";
 					$message = "Votre compte ".$POST_["saisieRes"]." de M2L a bien été supprimé.";
 						
