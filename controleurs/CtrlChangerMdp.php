@@ -44,13 +44,13 @@ else
 					$ok = Outils::envoyerMail ($email, $sujet, $message, $ADR_MAIL_EMETTEUR);
 					if ( $ok )
 					{
-						$msgFooter = "Enregistrement effectué ; <br> Vous allez recevoir un mail de confirmation.";
+						$msgFooter = "Changement mot de passe effectué ; <br> Vous allez recevoir un mail de confirmation.";
 						$themeFooter = $themeNormal;
 						include_once('vues/VueChangementMdp.php');
 					}
 					else
 					{
-						$msgFooter = "Enregistrement effectué ; <br> l'envoi du mail à l'utilisateur a rencontré un problème.";
+						$msgFooter = "Changement mot de passe effectué ; <br> l'envoi du mail à l'utilisateur a rencontré un problème.";
 						$themeFooter = $themeNormal;
 						include_once('vues/VueChangementMdp.php');
 					

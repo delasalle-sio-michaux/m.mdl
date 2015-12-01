@@ -30,7 +30,7 @@ else
 			{	// création d'un mot de passe aléatoire de 8 caractères
 				$password = Outils::creerMdp();
 				// enregistre l'utilisateur dans la bdd
-				$ok = $dao->enregistrerUtilisateur($_POST['saisieUser'], $_POST['radioNiveau'], $mdp, $email);
+				$ok = $dao->enregistrerUtilisateur($_POST['saisieUser'], $_POST['radioNiveau'], $mdp, $_POST['saisieUserMail']);
 				if ( ! $ok )
 				{
 					$msgFooter = "Problème lors de l'enregistrement";
